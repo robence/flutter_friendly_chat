@@ -34,7 +34,7 @@ class _ChatScreenState extends State<ChatScreen> {
 
   Widget _buildTextComposer() {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 8.0, vertical: 16.0),
+      margin: EdgeInsets.symmetric(horizontal: 8.0),
       child: Row(
         children: [
           Flexible(
@@ -44,12 +44,14 @@ class _ChatScreenState extends State<ChatScreen> {
               decoration: InputDecoration.collapsed(hintText: "Send a message"),
             ),
           ),
-          Container(
-              margin: EdgeInsets.symmetric(horizontal: 4.0),
-              child: IconButton(
-                icon: const Icon(Icons.send),
-                onPressed: () => _handleSubmitted(_textController.text),
-              ))
+          IconTheme(
+              data: IconThemeData(color: Theme.of(context).accentColor),
+              child: Container(
+                  margin: EdgeInsets.symmetric(horizontal: 4.0),
+                  child: IconButton(
+                    icon: const Icon(Icons.send),
+                    onPressed: () => _handleSubmitted(_textController.text),
+                  )))
         ],
       ),
     );
